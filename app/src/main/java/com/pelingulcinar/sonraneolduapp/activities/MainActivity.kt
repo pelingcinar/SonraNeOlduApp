@@ -22,8 +22,12 @@ class MainActivity : AppCompatActivity() {
 
         viewPager = findViewById(R.id.viewpager_main)
 
+
+
         fragmentAdapter.notifyDataSetChanged()
         viewpager_main.adapter = fragmentAdapter
+
+        tabs_main.setupWithViewPager(viewpager_main)
 
 
 

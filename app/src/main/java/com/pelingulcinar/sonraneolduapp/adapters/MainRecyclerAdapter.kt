@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.pelingulcinar.sonraneolduapp.R
 import com.pelingulcinar.sonraneolduapp.data.NewsDTO
 
@@ -35,8 +36,11 @@ class MainRecyclerAdapter(val news : ArrayList<NewsDTO>) : RecyclerView.Adapter<
         newsTitle.text = news[position].title
         description.text = news[position].content
         Glide.with(holder.itemView)
+
                 .load(news[position].images)
+                .apply(RequestOptions().centerCrop())
                 .into(image)
+
 
     }
 

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SonraNeOlduApp</string>
+    <string name="tab_a_label">tab_a_label</string>
 </resources>
