@@ -29,7 +29,8 @@ class MainActivity : AppCompatActivity() {
 
         tabs_main.setupWithViewPager(viewpager_main)
 
-
+        //RetrofitClient.getClient()
+               // .create(StoriesService::class.java)
 
     }
 
