@@ -13,15 +13,6 @@
 
     </androidx.viewpager.widget.ViewPager>
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_main"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@android:color/white"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
-
-    </androidx.appcompat.widget.Toolbar>
-
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs_main"
         android:layout_width="match_parent"
@@ -31,7 +22,5 @@
         >
 
     </com.google.android.material.tabs.TabLayout>
-
-
 
 </RelativeLayout>
