@@ -3,17 +3,14 @@ package com.pelingulcinar.sonraneolduapp.adapters
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import com.pelingulcinar.sonraneolduapp.data.NewsDTO
-import com.pelingulcinar.sonraneolduapp.fragments.MainFragment
 
-class MainViewPagerAdapter (fragmentManager : FragmentManager, private val news : ArrayList<NewsDTO>)
-    : FragmentStatePagerAdapter(fragmentManager) {
+class MainViewPagerAdapter (fm:FragmentManager, val fragmentlist :List<Fragment>) : FragmentStatePagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
-        return MainFragment.newInstance(news[position])
+        return fragmentlist[position]
     }
 
     override fun getCount(): Int {
-        return news.size
+        return fragmentlist.size
     }
 }

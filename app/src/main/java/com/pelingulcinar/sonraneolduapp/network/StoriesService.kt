@@ -7,7 +7,7 @@ import retrofit2.http.Path
 
 interface StoriesService {
 
-    @GET("stories/{id}") //linki kontrol et
+    @GET("tags/{id}/stories") //linki kontrol et
 
     fun getStoriesById(@Path("id") id: String): Call<StoriesByIdResponse>
 

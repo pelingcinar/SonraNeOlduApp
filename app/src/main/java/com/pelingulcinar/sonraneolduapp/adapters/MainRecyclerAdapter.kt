@@ -9,10 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.pelingulcinar.sonraneolduapp.R
-import com.pelingulcinar.sonraneolduapp.data.NewsDTO
+import com.pelingulcinar.sonraneolduapp.data.DataDTO
 
 
-class MainRecyclerAdapter(val news : ArrayList<NewsDTO>) : RecyclerView.Adapter<MainRecyclerAdapter.ViewHolder>() {
+class MainRecyclerAdapter(val news : List<DataDTO>) : RecyclerView.Adapter<MainRecyclerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
@@ -29,18 +29,13 @@ class MainRecyclerAdapter(val news : ArrayList<NewsDTO>) : RecyclerView.Adapter<
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val newsTitle = holder.itemView.findViewById<TextView>(R.id.txt_news_title)
-        val image = holder.itemView.findViewById<ImageView>(R.id.image)
-        val description = holder.itemView.findViewById<TextView>(R.id.txt_news_description)
-
-        newsTitle.text = news[position].title
-        description.text = news[position].content
+        holder.newsTitle.text = news[position].title
+        holder.description.text = news[position].content
         Glide.with(holder.itemView)
 
                 .load(news[position].images)
                 .apply(RequestOptions().centerCrop())
-                .into(image)
-
+                .into(holder.image)
 
     }
 

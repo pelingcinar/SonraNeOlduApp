@@ -2,52 +2,35 @@ package com.pelingulcinar.sonraneolduapp.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.pelingulcinar.sonraneolduapp.R
 import com.pelingulcinar.sonraneolduapp.adapters.MainViewPagerAdapter
-import com.pelingulcinar.sonraneolduapp.data.NewsDTO
+import com.pelingulcinar.sonraneolduapp.fragments.MainFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var viewPager: ViewPager
-    val fragmentAdapter = MainViewPagerAdapter(supportFragmentManager, loadFragment())
-    private lateinit var news : NewsDTO
-
+    lateinit var fragmentList :ArrayList<Fragment>
+    lateinit var fragmentAdapter : MainViewPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        fragmentList = ArrayList<Fragment>()
+        fragmentList.add(MainFragment.newInstance())
+        fragmentList.add(MainFragment.newInstance())
+        fragmentList.add(MainFragment.newInstance())
+        fragmentList.add(MainFragment.newInstance())
+        fragmentList.add(MainFragment.newInstance())
+
         viewPager = findViewById(R.id.viewpager_main)
-
-
-
-        fragmentAdapter.notifyDataSetChanged()
+        fragmentAdapter = MainViewPagerAdapter(supportFragmentManager,fragmentList)
         viewpager_main.adapter = fragmentAdapter
 
         tabs_main.setupWithViewPager(viewpager_main)
-
-        //RetrofitClient.getClient()
-               // .create(StoriesService::class.java)
-
-    }
-
-    companion object {
-        private fun loadFragment() : ArrayList<NewsDTO> {
-
-            val news = ArrayList<NewsDTO>()
-
-            news.add(NewsDTO("asd","asdok","xcolkza","zcxplkasd"))
-            news.add(NewsDTO("eqw","asdpok","qweop","qowerkrqepwo"))
-            news.add(NewsDTO("zxc","qwelli","41345","qweasd"))
-            news.add(NewsDTO("asdsad","qweqweasd","wqeeqwads","qweads"))
-            news.add(NewsDTO("qewwqewq","qewads","asdasd","qwewqaads"))
-            news.add(NewsDTO("qwewqeewqewqwq","dasqwe","xzczxc","asdassa"))
-            news.add(NewsDTO("adsasdads","vcxfgds","dsfsdf","qwewqe"))
-
-            return news
-        }
     }
 }
